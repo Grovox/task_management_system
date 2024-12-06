@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: task-management-system
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/test
+    username: test
+    password: test
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:sql/schema.sql
+jwt:
+  secret:
+    access: 0JrRg9C00LAg0LjQtNC10Lwg0LzRiyDRgSDQv9GP0YLQvtGH0LrQvtC80JrRg9C00LAg0LjQtNC10Lwg0LzRiyDRgSDQv9GP0YLQvtGH0LrQvtC8
+    access-expiration: 10 # Время жизни в минутах
+    refresh: RW5jb2RlIHRvIEJhc2U2NCBmb3JtYXQ=RW5jb2RlIHRvIEJhc2U2NCBmb3JtYXQ=RW5jb2RlIHRvIEJhc2U2NCBmb3JtYXQ=
+    refresh-expiration: 30 # Время жизни в минутах

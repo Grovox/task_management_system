@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  task-manager-system:
+    image: application:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+
+  postgres:
+    image: postgres:17.0
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./db/create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
+    ports:
+      - "5432:5432"
